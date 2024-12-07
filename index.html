@@ -13,10 +13,26 @@
             .select {
                 margin:auto;
             }
+            ul {
+                list-style: none;
+            }
+            ul > li:before {
+                content: "-";
+                margin-right: 0.5em;
+            }
         </style>
     </head>
     <body>
-        <h1>Two of These People Are Lying</h1>
+        <h1>(All but one) of These People Is Lying</h1>
+
+        <div class="rules">
+            <p>Rules:</p>
+            <ul>
+                <li>Each player picks a <a href="https://wikipedia.org">Wikipedia</a> article.</li>
+                <li>One article is picked at random.</li>
+                <li>You have to convince the guesser you were the one who picked that article.</li>
+            </ul>
+        </div>
 
         <div>
             <p class="select">I am a:</p>
