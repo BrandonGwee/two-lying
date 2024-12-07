@@ -22,3 +22,8 @@ model Article {
     playerID Player @relation(fields: [finder], references: [id], onDelete: Cascade)
     finder   Int    @unique
 }
+
+model Notes {
+    id   Int    @id @default(autoincrement())
+    text String
+}
