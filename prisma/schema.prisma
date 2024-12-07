@@ -1,0 +1,15 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Player {
+    id   Int    @id @default(autoincrement())
+    name String
+}
+
+model Article {
+    id   Int     @id @default(autoincrement())
+    name String
+    link String?
+}
