@@ -21,11 +21,11 @@ function selectRole() {
 }
 
 function enterName(role) {
-    const newPersonDiv = document.getElementById('newPerson');
+    const gameScreenDiv = document.getElementById('gameScreen');
 
-    newPersonDiv.innerHTML = null;
+    gameScreenDiv.innerHTML = null;
 
-    newPersonDiv.innerHTML = 
+    gameScreenDiv.innerHTML = 
         `<p>You can call me:</p>
             <div class="name">
                 <input id="personName" placeholder="Enter a name">
@@ -49,7 +49,15 @@ function enterName(role) {
             })
         })
         .then((response) => response.json())
-        .then(window.location = `${apiUrl}/public/gameRoom.html`)
+        .then( () => {
+                if (role == 'player') {
+                    enterArticle(gameScreenDiv);
+                }
+                else {
+                    waitForArticles(gameScreenDiv);
+                }
+            }
+        )
         .catch((error) => console.error('Error adding task:', error));
     }
 }
