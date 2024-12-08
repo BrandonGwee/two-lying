@@ -16,19 +16,29 @@ module.exports.createPerson = function createPerson(name, role) {
 
 module.exports.getAllPeople = function getAllPeople() {
     return prisma.player
-        .findMany ({
-            include: {
-                name: true,
-                role: true,
-                isWinner: true,
-                Article: true,
-            },
-        })
+        .findMany ({include: {
+            Article: true
+        }})
         .then((players) => {
             console.log("All players:", players);
             return players;
         });
 };
+
+module.exports.updateWinner = function updateWinner(id, isWinner) {
+    return prisma.player
+        .update ({
+            where: { id },
+            data: {
+                id: id,
+                isWinner: isWinner,
+            }
+        })
+        .then((player) => {
+            console.log("We have a winner:", player);
+            return player;
+        });
+}
 
 module.exports.deleteEveryone = function deleteEveryone() {
     return prisma.player

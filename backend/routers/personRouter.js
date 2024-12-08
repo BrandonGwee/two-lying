@@ -3,7 +3,8 @@ const router = express.Router();
 const {
     createPerson,
     getAllPeople,
-    deleteEveryone
+    updateWinner,
+    deleteEveryone,
 } = require('../models/personModel.js');
 
 router.post('/', (req, res, next) => {
@@ -18,6 +19,15 @@ router.get('/', (req, res, next) => {
       .then((person) => res.status(200).json(person))
       .catch(next);
 });
+
+router.put('/:id', (req, res, next) => {
+    const { id } = req.params;
+    const { isWinner } = req.body;
+
+    updateWinner(parseInt(id), isWinner)
+        .then((person) => res.status(200).json(person))
+        .catch(next);
+})
 
 router.delete('/', (req, res, next) => {
     deleteEveryone()

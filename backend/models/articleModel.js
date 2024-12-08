@@ -1,14 +1,15 @@
 const prisma = require('./prismaClient');
 
-module.exports.createArticle = function createArticle(name) {
+module.exports.createArticle = function createArticle(name, finder) {
     return prisma.article
         .create({
             data: {
                 name,
+                finder: finder,
             },
         })
         .then((article) => {
-            console.log("Player created:", article);
+            console.log("Article created:", article);
             return article;
         });
 };

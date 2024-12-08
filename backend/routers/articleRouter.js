@@ -7,8 +7,8 @@ const {
 } = require('../models/articleModel.js');
 
 router.post('/', (req, res, next) => {
-    const { name } = req.body;
-    createArticle(name)
+    const { name, playerID } = req.body;
+    createArticle(name, playerID)
         .then((article) => res.status(200).json(article))
         .catch(next);
 });

@@ -8,7 +8,7 @@
     "migration:lying": "dotenv -e .env.lying -- npx prisma migrate dev",
     "db:pull:lying": "dotenv -e  .env.lying -- npx prisma db pull",
     "db:push:lying": "dotenv -e  .env.lying -- npx prisma db push",
-    "start": "cross-env NODE_ENV=development node ./server.js",
+    "start": "cross-env NODE_ENV=development node ./api/server.js",
     "test": "cross-env NODE_ENV=test playwright test --config=configs/playwright.config.js"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "dotenv": "^16.4.7",
     "dotenv-cli": "^7.4.4",
     "express": "^4.21.2",
+    "http-errors": "^2.0.0",
     "nodemon": "^3.1.7",
     "path": "^0.12.7",
     "pg": "^8.13.1",
