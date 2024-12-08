@@ -18,7 +18,7 @@ dotenv.config({ path: envFilePath });
 const app = express();
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/')));
 app.use('/person', personRouter);
 app.use('/article', articleRouter);
 app.use('/notes', notesRouter);

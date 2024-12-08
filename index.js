@@ -34,9 +34,10 @@ function enterName(role) {
             
 
     const submitButton = document.getElementById('submitButton');
-    const personName = document.getElementById('personName').value;
 
     submitButton.onclick = () => {
+        const personName = document.getElementById('personName').value;
+
         fetch(`${apiUrl}/person`, {
             method: 'POST',
             headers: {
@@ -48,7 +49,7 @@ function enterName(role) {
             })
         })
         .then((response) => response.json())
-        .then(window.location = `${apiUrl}/gameRoom.html`)
+        .then(window.location = `${apiUrl}/public/gameRoom.html`)
         .catch((error) => console.error('Error adding task:', error));
     }
 }
