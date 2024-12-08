@@ -6,7 +6,7 @@
             html {
                 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-            p {
+            p, .name {
                 font-size: larger;
                 text-align: center;
             }
@@ -36,18 +36,20 @@
             </ul>
         </div>
 
-        <div>
+        <div id="newPerson">
             <p class="select">I am a:</p>
             <table class="select">
                 <tr>
                     <td>
-                        <button id="player">Player</button>
+                        <button type="button" id="player">Player</button>
                     </td>
                     <td>
-                        <button id="guesser">Guesser</button>
+                        <button type="button" id="guesser">Guesser</button>
                     </td>
                 </tr>
             </table>
         </div>
+
+        
     </body>
 </html>
