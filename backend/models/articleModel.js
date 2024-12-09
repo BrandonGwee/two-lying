@@ -17,10 +17,7 @@ module.exports.createArticle = function createArticle(name, finder) {
 module.exports.getAllArticles = function getAllArticles() {
     return prisma.article
         .findMany ({
-            include: {
-                name: true,
-                playerID: true,
-            },
+            include: {},
         })
         .then((articles) => {
             console.log("All articles:", articles);

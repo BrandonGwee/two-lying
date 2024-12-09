@@ -23,8 +23,6 @@ function selectRole() {
 function enterName(role) {
     const gameScreenDiv = document.getElementById('gameScreen');
 
-    gameScreenDiv.innerHTML = null;
-
     gameScreenDiv.innerHTML = 
         `<p>You can call me:</p>
             <div class="name">
@@ -53,15 +51,41 @@ function enterName(role) {
                 if (role == 'player') {
                     enterArticle(gameScreenDiv);
                 }
-                else {
-                    waitForArticles(gameScreenDiv);
-                }
             }
         )
         .catch((error) => console.error('Error adding task:', error));
     }
 }
 
+function enterArticle(gameScreenDiv) {
+    gameScreenDiv.innerHTML = `
+    <p>Enter the name of your article</p>
+    <input id="articleName" placeholder="Article Name">
+    <button type="button" id="articleButton">Enter</button>`;
+
+    const articleButton = Document.getElementById('articleButton');
+
+    articleButton.onclick = () => {
+        const articleName = Document.getElementById('articleButton').value;
+
+        
+
+        fetch(`${apiUrl}/article`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: personName,
+                playerID: playerID
+            })
+        })
+    }
+
+
+}
+
+// When page loads
 document.addEventListener('DOMContentLoaded', () => {
 
     selectRole();
